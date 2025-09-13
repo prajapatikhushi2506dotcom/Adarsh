@@ -106,9 +106,9 @@
       let msgBox = document.getElementById("message");
 
       if (name.trim() === "") {
-        msgBox.innerHTML = "I Love You Forever ♥️";
+        msgBox.innerHTML = "🤗 Big Hug and I Love You Forever ♥️";
       } else {
-        msgBox.innerHTML = "I Love You, " + name + " ♥️";
+        msgBox.innerHTML = "🤗 Big Hug and I Love You, " + name + " ♥️";
       }
 
       msgBox.style.display = "block";
@@ -119,11 +119,11 @@
 
       // Floating hearts
       for (let i = 0; i < 10; i++) {
-        createFloating("❤️","💕");
+        createFloating("❤️");
       }
       // Floating flowers
       for (let i = 0; i < 8; i++) {
-        createFloating("🌸","🌷");
+        createFloating("🌸");
       }
       // Floating stars
       for (let i = 0; i < 8; i++) {
@@ -133,4 +133,23 @@
 
     function createFloating(symbol) {
       let floating = document.createElement("div");
-      floating.classList.add(
+      floating.classList.add("floating");
+      floating.innerHTML = symbol;
+      floating.style.left = Math.random() * window.innerWidth + "px";
+      floating.style.fontSize = (20 + Math.random() * 20) + "px";
+      floating.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(floating);
+
+      setTimeout(() => {
+        floating.remove();
+      }, 8000);
+    }
+
+    // Background continuous floating for ambiance
+    setInterval(() => {
+      const symbols = ["🌹","✨","❤️"];
+      createFloating(symbols[Math.floor(Math.random()*symbols.length)]);
+    }, 800);
+  </script>
+</body>
+</html>
