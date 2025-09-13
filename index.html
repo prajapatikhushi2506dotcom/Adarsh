@@ -115,8 +115,10 @@
 
       // Play background music
       let music = document.getElementById("bgMusic");
-      music.play();
-
+      try {
+       music.play();
+    } catch (e) {}
+        
       // Floating hearts
       for (let i = 0; i < 10; i++) {
         createFloating("❤️");
